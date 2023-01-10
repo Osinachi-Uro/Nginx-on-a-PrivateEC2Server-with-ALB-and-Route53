@@ -84,7 +84,7 @@ Take the following steps:
 > * Type **yes** on the next prompt when asked "Are you sure you want to continue connecting?"
 <img width="460" alt="ssh into bastion host" src="https://user-images.githubusercontent.com/83463641/211575104-0bb3df4e-6bd4-4543-9dca-bed757d99739.PNG">
 
-> * While still inside the bastion host create a file containing the key pair, with the same name as the one you downloaded. ```sudo nano Holiday.pem``` .
+> * While still inside the bastion host, create a file containing the key pair, with the same name as the one you downloaded. ```sudo nano Holiday.pem``` .
 > 
 > * Then ssh into each of the private EC2 instances one after the other. Using ```ssh -i "Holiday.pem" ubuntu@10.0.134.203``` for my **HC-EC21** and ```ssh -i "Holiday.pem" ubuntu@10.0.148.140``` for **HC-EC22** .
 
@@ -97,11 +97,19 @@ Take the following steps:
 #### 5. Install Nginx and Configure hostname
 *According to Nginx.com, NGINX is open source software for web serving, reverse proxying, caching, load balancing, media streaming, and more. It started out as a web server designed for maximum performance and stability. In addition to its HTTP server capabilities, NGINX can also function as a proxy server for email (IMAP, POP3, and SMTP) and a reverse proxy and load balancer for HTTP, TCP, and UDP servers.*
 
-To set up Nginx, which is part of the requirements of this assignment, I ran the following commands:
+To set up Nginx, which is part of the requirements of this assignment, I ran the following commands on each of the private servers one at a time:
 
 > * ```sudo apt update```
 > 
 > * ```sudo apt install nginx -y```
-
-
+> 
+> * Change into a root user with ```sudo su``` and run the next command to replace the default nginx file with the server hostname
+> 
+> ```echo "<h1>Hello Valentine! This is my first server $(hostname -f)</h1>" > /var/www/html/index.nginx-debian.html```
+> 
+> * To confirm that the previous command was executed run the following command to check. This command will display the content of the file.
+>   ```cat /var/www/html/index.nginx-debian.html```
+>   
+> * Exit the root user and enable Nginx to apply the changes ```sudo systemctl enable nginx```
+>  
 
