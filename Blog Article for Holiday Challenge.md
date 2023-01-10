@@ -11,7 +11,7 @@ How I set up Nginx server to run a php application on two private EC2 instances 
 ### Solution Outline
 1. Create a Virtual Private Cloud (VPC)
 2. Create a Bastion Host
-3. Create 2 private EC2 instatnces
+3. Create 2 private EC2 instances
 4. Connect to the privite instances through the Bastion Host
 5. Install Nginx and configure hostname
 6. Set up Application Load balancer for the servers
@@ -53,5 +53,23 @@ Next from the list of services, under EC2 select to **Launch Instances** using t
 > * VPC: Same VPC created in step 1
 > * Subnet: Select one of the public subnets created earlier.
 > * Enable auto-assign public IP
-> * Create security group with inbound rule to allow ssh traffic from Anywhere
+> * Create security group with inbound rule to allow ssh traffic from Anywhere 0.0.0.0/0
+> 
+> Launch Instance.
+<img width="786" alt="Bastion host summary" src="https://user-images.githubusercontent.com/83463641/211542294-fd0c2438-05f8-417c-98c0-dd81f838e84b.PNG">
+
+
+#### 3. Create 2 private EC2 Instances
+Create each of the two private EC2 instances separately following the same steps as the Bastion host with the following important changes:
+> * Place each private EC2 instance in one of the 2 private subnets.
+> * Disable auto-assign public IP
+> * Select the same security group created in step 2 for the bastion host
+
+**Instance Summary for private EC2 1 and 2**
+
+<img width="783" alt="ec21" src="https://user-images.githubusercontent.com/83463641/211544517-2cb56ce2-fca8-4c03-b975-61ed2dc408a8.PNG">
+
+<img width="770" alt="ec22" src="https://user-images.githubusercontent.com/83463641/211544556-874a0e98-4d7b-4269-a70f-5df0e554b775.PNG">
+
+
 
