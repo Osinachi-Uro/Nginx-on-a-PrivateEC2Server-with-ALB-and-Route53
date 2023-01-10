@@ -117,4 +117,25 @@ To set up Nginx, which is part of the requirements of this assignment, I ran the
 > * Check Nginx status with this command ``` sudo systemctl status nginx``` to confirm its running.
 
 <img width="840" alt="Nginx setup" src="https://user-images.githubusercontent.com/83463641/211667994-33c3a2be-5c14-42cc-bd39-2f082ff531ec.PNG">
-* Logout and repeat the same process for the second private EC2 Instance. 
+
+> * Logout and repeat the same process for the second private EC2 Instance.
+<img width="833" alt="server 2" src="https://user-images.githubusercontent.com/83463641/211672386-1ffd32f7-2437-4621-a721-70f19ab15522.PNG">
+
+#### 6. Set up Application Load balancer for the servers
+*Elastic Load Balancing (ELB) automatically distributes incoming application traffic across multiple targets and virtual appliances in one or more Availability Zones (AZs).
+
+AWS has three different types of Elastic Load balancers which are Application Load balancer, Gateway Load balancer and Network Load balancer. For this exercise we will be setting up an Application Load Balancer fr our EC2 instances. From the EC2 page on the AWS management console, select Load balancers under **Load Balancing** then select **Create load balancer** take the following steps.
+> * Select 'create' for Application Load Balancer.
+> * Name: ()
+> * Internet facing and IPv4
+> * Select the same VPC we created for the project.
+> * Map to the two private subnets in separate availability zones
+> * Create a new security group called **HCALB sg** for the load balancer, and allow Inbound HTTP and HTTPS traffic on ports 80 and 443. Allow all outbound traffic.
+> * For the Listeners, we choose to create a Target group:
+>> * Target group type is Instances
+>> * Target Group name (HCTargetGroup)
+>> * Select the project VPC
+>> * Protocol version is HTTP1
+>> * Select the private instances and click the botton **Include as pending below** then create target group
+> * Back to the ALB creation page and select the newly created target group, the create load balancer.
+> 
