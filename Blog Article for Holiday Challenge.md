@@ -80,8 +80,16 @@ Take the following steps:
 > While inside the directory, assign a 400 file permission to the .pem file using ```chmod 400 Holiday.pem```
 > 
 > Next, ssh into the bastion host using the command ```ssh -i "Holiday.pem" ubuntu@ec2-54-226-168-26.compute-1.amazonaws.com```
-> Type **yes** on the next prompt when asked "Are you sure you want to continue connecting"
+> 
+> Type **yes** on the next prompt when asked "Are you sure you want to continue connecting?"
 <img width="460" alt="ssh into bastion host" src="https://user-images.githubusercontent.com/83463641/211575104-0bb3df4e-6bd4-4543-9dca-bed757d99739.PNG">
+
+> While still inside the bastion host create a file containing the key pair, with the same name as the one you downloaded. ```sudo nano Holiday.pem``` .
+> 
+> Then ssh into each of the private EC2 instances one after the other. Using ```ssh -i "Holiday.pem" ubuntu@10.0.134.203``` for my **HC-EC21** and ```ssh -i "Holiday.pem" ubuntu@10.0.148.140``` for **HC-EC22** .
+
+#### 5. Install Nginx and Configure hostname
+
 
 
 
