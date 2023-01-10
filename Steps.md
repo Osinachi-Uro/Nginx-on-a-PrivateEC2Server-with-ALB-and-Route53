@@ -13,4 +13,12 @@
 ##### 2. https://faun.pub/create-an-aws-vpc-subnet-security-group-and-acl-using-ansible-5a16aaa1042e
 ##### 3. 
 
+### Errors
+##### 1. 
+Solution
+
+
+```
+
+```
 
