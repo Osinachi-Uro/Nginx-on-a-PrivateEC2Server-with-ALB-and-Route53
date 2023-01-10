@@ -111,5 +111,10 @@ To set up Nginx, which is part of the requirements of this assignment, I ran the
 >   ```cat /var/www/html/index.nginx-debian.html```
 >   
 > * Exit the root user and enable Nginx to apply the changes ```sudo systemctl enable nginx```
->  
+> 
+> * Start Nginx with ```sudo systemctl start nginx```
+> 
+> * Check Nginx status with this command ``` sudo systemctl status nginx``` to confirm its running.
 
+<img width="840" alt="Nginx setup" src="https://user-images.githubusercontent.com/83463641/211667994-33c3a2be-5c14-42cc-bd39-2f082ff531ec.PNG">
+* Logout and repeat the same process for the second private EC2 Instance. 
