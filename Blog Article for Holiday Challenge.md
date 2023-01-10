@@ -75,21 +75,33 @@ Create each of the two private EC2 instances separately following the same steps
 #### 4. Connect to the private instances through the Bastion Host
 To reach each of the private instances, we will have to go through the public instance which is the bastion host in this case.
 Take the following steps:
-> Open any CLI of your choice and cd into the directory where the .pem keypair file was downloaded. I called my file **Holiday.pem**
+> * Open any CLI of your choice and cd into the directory where the .pem keypair file was downloaded. I called my file **Holiday.pem**
 > 
-> While inside the directory, assign a 400 file permission to the .pem file using ```chmod 400 Holiday.pem```
+> * While inside the directory, assign a 400 file permission to the .pem file using ```chmod 400 Holiday.pem```
 > 
-> Next, ssh into the bastion host using the command ```ssh -i "Holiday.pem" ubuntu@ec2-54-226-168-26.compute-1.amazonaws.com```
+> * Next, ssh into the bastion host using the command ```ssh -i "Holiday.pem" ubuntu@ec2-54-226-168-26.compute-1.amazonaws.com```
 > 
-> Type **yes** on the next prompt when asked "Are you sure you want to continue connecting?"
+> * Type **yes** on the next prompt when asked "Are you sure you want to continue connecting?"
 <img width="460" alt="ssh into bastion host" src="https://user-images.githubusercontent.com/83463641/211575104-0bb3df4e-6bd4-4543-9dca-bed757d99739.PNG">
 
-> While still inside the bastion host create a file containing the key pair, with the same name as the one you downloaded. ```sudo nano Holiday.pem``` .
+> * While still inside the bastion host create a file containing the key pair, with the same name as the one you downloaded. ```sudo nano Holiday.pem``` .
 > 
-> Then ssh into each of the private EC2 instances one after the other. Using ```ssh -i "Holiday.pem" ubuntu@10.0.134.203``` for my **HC-EC21** and ```ssh -i "Holiday.pem" ubuntu@10.0.148.140``` for **HC-EC22** .
+> * Then ssh into each of the private EC2 instances one after the other. Using ```ssh -i "Holiday.pem" ubuntu@10.0.134.203``` for my **HC-EC21** and ```ssh -i "Holiday.pem" ubuntu@10.0.148.140``` for **HC-EC22** .
+
+<img width="486" alt="ssh in EC21" src="https://user-images.githubusercontent.com/83463641/211594694-782fe497-db0a-4db1-9018-a14f454bf33a.PNG">
+
+> * To confirm that my private server can reach the internet through the public subnet, i ran the following command ```ping google.com```
+
+<img width="590" alt="Confirm that my private subnet can reach the internet through the public subnet" src="https://user-images.githubusercontent.com/83463641/211601489-8d101d3d-68ec-4f9a-bdef-ecc060892bfe.PNG">
 
 #### 5. Install Nginx and Configure hostname
+*According to Nginx.com, NGINX is open source software for web serving, reverse proxying, caching, load balancing, media streaming, and more. It started out as a web server designed for maximum performance and stability. In addition to its HTTP server capabilities, NGINX can also function as a proxy server for email (IMAP, POP3, and SMTP) and a reverse proxy and load balancer for HTTP, TCP, and UDP servers.*
 
+To set up Nginx, which is part of the requirements of this assignment, I ran the following commands:
+
+> * ```sudo apt update```
+> 
+> * ```sudo apt install nginx -y```
 
 
 
