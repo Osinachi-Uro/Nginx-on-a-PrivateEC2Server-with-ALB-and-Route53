@@ -126,7 +126,7 @@ To set up Nginx, which is part of the requirements of this assignment, I ran the
 
 AWS has three different types of Elastic Load balancers which are Application Load balancer, Gateway Load balancer and Network Load balancer. For this exercise we will be setting up an Application Load Balancer fr our EC2 instances. From the EC2 page on the AWS management console, select Load balancers under **Load Balancing** then select **Create load balancer** take the following steps.
 > * Select 'create' for Application Load Balancer.
-> * Name: ()
+> * Name: (HCAppLoadBalancer)
 > * Internet facing and IPv4
 > * Select the same VPC we created for the project.
 > * Map to the two private subnets in separate availability zones
@@ -137,5 +137,6 @@ AWS has three different types of Elastic Load balancers which are Application Lo
 >> * Select the project VPC
 >> * Protocol version is HTTP1
 >> * Select the private instances and click the botton **Include as pending below** then create target group
-> * Back to the ALB creation page and select the newly created target group, the create load balancer.
+> * Back to the ALB creation page and select the newly created target group, then create load balancer.
 > 
+<img width="758" alt="load balancer" src="https://user-images.githubusercontent.com/83463641/211681708-6abe588b-c085-490a-a92e-76ea583ea4b3.PNG">
