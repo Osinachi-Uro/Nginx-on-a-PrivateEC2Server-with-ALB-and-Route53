@@ -12,7 +12,7 @@ How I set up Nginx server to run a php application on two private EC2 instances 
 1. Create a Virtual Private Cloud (VPC)
 2. Create a Bastion Host
 3. Create 2 private EC2 instances
-4. Connect to the privite instances through the Bastion Host
+4. Connect to the private instances through the Bastion Host
 5. Install Nginx and configure hostname
 6. Set up Application Load balancer for the servers
 7. Set up Auto Scalling.
@@ -48,7 +48,7 @@ Next from the list of services, under EC2 select to **Launch Instances** using t
 > 
 > Instance Type: t2.micro
 > 
-> Create new key pair: Type RSA; Format .pem.
+> Create new key pair: Type RSA; Format .pem. This action downloads the created .pem file on the system for later use.
 > Edit Network settings:
 > * VPC: Same VPC created in step 1
 > * Subnet: Select one of the public subnets created earlier.
@@ -61,6 +61,7 @@ Next from the list of services, under EC2 select to **Launch Instances** using t
 
 #### 3. Create 2 private EC2 Instances
 Create each of the two private EC2 instances separately following the same steps as the Bastion host with the following important changes:
+> * Names: (HC-EC21) and (HC-EC22)
 > * Place each private EC2 instance in one of the 2 private subnets.
 > * Disable auto-assign public IP
 > * Select the same security group created in step 2 for the bastion host
@@ -70,6 +71,17 @@ Create each of the two private EC2 instances separately following the same steps
 <img width="783" alt="ec21" src="https://user-images.githubusercontent.com/83463641/211544517-2cb56ce2-fca8-4c03-b975-61ed2dc408a8.PNG">
 
 <img width="770" alt="ec22" src="https://user-images.githubusercontent.com/83463641/211544556-874a0e98-4d7b-4269-a70f-5df0e554b775.PNG">
+
+#### 4. Connect to the private instances through the Bastion Host
+To reach each of the private instances, we will have to go through the public instance which is the bastion host in this case.
+Take the following steps:
+> Open any CLI of your choice and cd into the directory where the .pem keypair file was downloaded. I called my file **Holiday.pem**
+> 
+> While inside the directory, assign a 400 file permission to the .pem file using ```chmod 400 Holiday.pem```
+> 
+> Next, ssh into the bastion host using the command ```ssh -i "Holiday.pem" ubuntu@ec2-54-226-168-26.compute-1.amazonaws.com```
+> Type **yes** on the next prompt when asked "Are you sure you want to continue connecting"
+<img width="460" alt="ssh into bastion host" src="https://user-images.githubusercontent.com/83463641/211575104-0bb3df4e-6bd4-4543-9dca-bed757d99739.PNG">
 
 
 
