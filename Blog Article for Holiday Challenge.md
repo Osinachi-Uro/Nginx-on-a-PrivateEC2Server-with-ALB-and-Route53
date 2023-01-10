@@ -95,7 +95,7 @@ Take the following steps:
 <img width="590" alt="Confirm that my private subnet can reach the internet through the public subnet" src="https://user-images.githubusercontent.com/83463641/211601489-8d101d3d-68ec-4f9a-bdef-ecc060892bfe.PNG">
 
 #### 5. Install Nginx and Configure hostname
-*According to Nginx.com, NGINX is open source software for web serving, reverse proxying, caching, load balancing, media streaming, and more. It started out as a web server designed for maximum performance and stability. In addition to its HTTP server capabilities, NGINX can also function as a proxy server for email (IMAP, POP3, and SMTP) and a reverse proxy and load balancer for HTTP, TCP, and UDP servers.*
+*According to Nginx.com, NGINX is an open source software for web serving, reverse proxying, caching, load balancing, media streaming, and more. It started out as a web server designed for maximum performance and stability. In addition to its HTTP server capabilities, NGINX can also function as a proxy server for email (IMAP, POP3, and SMTP) and a reverse proxy and load balancer for HTTP, TCP, and UDP servers.*
 
 To set up Nginx, which is part of the requirements of this assignment, I ran the following commands on each of the private servers one at a time:
 
