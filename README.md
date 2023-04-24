@@ -9,9 +9,9 @@ Set up an ALB(Application Load balancer) to route requests to your EC2 instances
 Using any programming language of your choice make sure that each server displays its own Hostname or IP address.  
 
 ## Note
-Your web servers should not be accessible through their respective IP addresses access must be only via the load balancer. 
-You should define a logical network on the cloud for your servers. 
-Your EC2 instances must be launched in a private network. 
-Your Instances should not be assigned public IP addresses. 
-You may or may not set up auto scaling.
-You must submit a custom domain name (from a domain provider e.g. Route53) or the ALB’s domain name.
+* Your web servers should not be accessible through their respective IP addresses access must be only via the load balancer. 
+* You should define a logical network on the cloud for your servers. 
+* Your EC2 instances must be launched in a private network. 
+* Your Instances should not be assigned public IP addresses. 
+* You may or may not set up auto scaling.
+* You must submit a custom domain name (from a domain provider e.g. Route53) or the ALB’s domain name.
